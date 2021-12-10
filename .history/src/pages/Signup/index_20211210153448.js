@@ -27,24 +27,21 @@ const Signup = () => {
         }));
     };
 
-    const onSignup = async (e) => {
+    const onSignup = (e) => {
         e.preventDefault();
         setLoading(true);
-        try {
-            post_signup(
-                form,
-                resp => {
-                    setLoading(false)
-                    console.log(resp)
-                },
-                error => {
-                    setLoading(false)
-                    console.log('error')
-                }
-            );
-        } catch {
-            setLoading(false);
-        }
+        post_signup(
+            form,
+            resp => {
+                setLoading(false)
+                console.log(resp)
+            },
+            error => {
+                setLoading(false)
+                console.log(error)
+            }
+        );
+        setLoading(false);
     }
 
     return (

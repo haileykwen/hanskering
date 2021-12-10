@@ -9,7 +9,7 @@ const Signin = () => {
 
     return (
         <Container minH="100vh" alignItems="center" justifyContent="center" centerContent>
-            <Heading marginBottom="60px" lineHeight="100%">Yuk, sepatu kece nungguin kamu buat dicheckout nih!</Heading>
+            <Heading marginBottom="20px" lineHeight="100%">Yuk, sepatu kece nungguin kamu buat dicheckout nih!</Heading>
 
             <Input placeholder='Email' focusBorderColor="black"/>
             <InputGroup marginTop="5px">
@@ -28,7 +28,7 @@ const Signin = () => {
             <Button
                 isLoading={false}
                 loadingText='Submitting'
-                marginTop="20px"
+                marginTop="50px"
                 width="100%"
                 backgroundColor="black"
                 transition="0.3s"

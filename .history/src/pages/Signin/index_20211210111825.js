@@ -9,7 +9,7 @@ const Signin = () => {
 
     return (
         <Container minH="100vh" alignItems="center" justifyContent="center" centerContent>
-            <Heading marginBottom="60px" lineHeight="100%">Yuk, sepatu kece nungguin kamu buat dicheckout nih!</Heading>
+            <Heading marginBottom="20px" lineHeight="100%">Yuk, sepatu kece nungguin kamu buat dicheckout nih!</Heading>
 
             <Input placeholder='Email' focusBorderColor="black"/>
             <InputGroup marginTop="5px">

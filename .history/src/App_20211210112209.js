@@ -3,9 +3,9 @@ import { Home, Signin, Signup } from './pages';
 
 function App() {
   return (
-    <Signup />
+    // <Signup />
     // <Signin />
-    // <Home />
+    <Home />
   );
 }
 

@@ -1,6 +1,6 @@
 import { Button } from '@chakra-ui/button'
 import { Input, InputGroup, InputRightElement } from '@chakra-ui/input'
-import { Container, Heading } from '@chakra-ui/layout'
+import { Container } from '@chakra-ui/layout'
 import React from 'react'
 
 const Signin = () => {
@@ -9,18 +9,15 @@ const Signin = () => {
 
     return (
         <Container minH="100vh" alignItems="center" justifyContent="center" centerContent>
-            <Heading marginBottom="60px" lineHeight="100%">Yuk, sepatu kece nungguin kamu buat dicheckout nih!</Heading>
-
             <Input placeholder='Email' focusBorderColor="black"/>
-            <InputGroup marginTop="5px">
+            <InputGroup marginTop="5px" focusBorderColor="black">
                 <Input
-                    focusBorderColor="black"
                     type={show ? 'text' : 'password'}
                     placeholder='Kata Sandi'
                 />
                 <InputRightElement width='4.5rem'>
-                    <Button h='1.75rem' size='xs' onClick={handleClick} _focus={{boxShadow: "none"}}>
-                        {show ? 'Tutup' : 'Lihat'}
+                    <Button h='1.75rem' size='xs' onClick={handleClick} _focus={{outlineColor: "black"}}>
+                    {show ? 'Tutup' : 'Lihat'}
                     </Button>
                 </InputRightElement>
             </InputGroup>
@@ -28,14 +25,14 @@ const Signin = () => {
             <Button
                 isLoading={false}
                 loadingText='Submitting'
-                marginTop="20px"
+                colorScheme='teal'
+                marginTop="15px"
                 width="100%"
+                bg="black"
                 backgroundColor="black"
                 transition="0.3s"
-                outline="0"
-                color="white"
                 _hover={{backgroundColor: "white", color: "black", border: "2px solid black", transition: "0.3s", borderColor:"black"}}
-                _focus={{boxShadow: "none"}}
+                _pressed={{bg: "black", backgroundColor: "black"}}
             >
                 Masuk
             </Button>

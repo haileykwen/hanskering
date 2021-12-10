@@ -10,7 +10,8 @@ const Signup = () => {
     const [show2, setShow2] = React.useState(false);
     const handleClick = () => setShow(!show);
     const handleClick2 = () => setShow2(!show2);
-    const [loading, setLoading] = React.useState(false);
+    
+    let loading = false;
 
     const [form, setForm] = React.useState({
         fullname: "",
@@ -27,24 +28,19 @@ const Signup = () => {
         }));
     };
 
-    const onSignup = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        try {
-            post_signup(
-                form,
-                resp => {
-                    setLoading(false)
-                    console.log(resp)
-                },
-                error => {
-                    setLoading(false)
-                    console.log('error')
-                }
-            );
-        } catch {
-            setLoading(false);
-        }
+    const onSignup = () => {
+        loading = true;
+        // post_signup(
+        //     form,
+        //     resp => {
+        //         loading = false;
+        //         console.log(resp);
+        //     },
+        //     error => {
+        //         loading = false;
+        //         console.log(error);
+        //     }
+        // );
     }
 
     return (

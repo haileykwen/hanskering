@@ -10,7 +10,8 @@ const Signup = () => {
     const [show2, setShow2] = React.useState(false);
     const handleClick = () => setShow(!show);
     const handleClick2 = () => setShow2(!show2);
-    const [loading, setLoading] = React.useState(false);
+    
+    let loading = false;
 
     const [form, setForm] = React.useState({
         fullname: "",
@@ -27,29 +28,24 @@ const Signup = () => {
         }));
     };
 
-    const onSignup = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        try {
-            post_signup(
-                form,
-                resp => {
-                    setLoading(false)
-                    console.log(resp)
-                },
-                error => {
-                    setLoading(false)
-                    console.log('error')
-                }
-            );
-        } catch {
-            setLoading(false);
-        }
+    const onSignup = () => {
+        loading = true;
+        post_signup(
+            form,
+            resp => {
+                loading = false;
+                console.log(resp);
+            },
+            error => {
+                loading = false;
+                console.log(error);
+            }
+        );
     }
 
     return (
         <Container minH="100vh" alignItems="center" justifyContent="center" centerContent>
-            <form onSubmit={onSignup}>
+            <form>
                 <Heading marginBottom="60px" lineHeight="100%">Buat akun dan mulai checkout sepatu-sepatu keren!</Heading>
 
                 <Input name='fullname' placeholder='Nama Lengkap' focusBorderColor="black" value={form.fullname} onChange={handleChange} required />
@@ -96,6 +92,7 @@ const Signup = () => {
                     color="white"
                     _hover={{backgroundColor: "white", color: "black", border: "2px solid black", transition: "0.3s"}}
                     _focus={{boxShadow: "none"}}
+                    onClick={onSignup}
                 >
                     Buat Akun
                 </Button>
