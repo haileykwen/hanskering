@@ -1,16 +1,21 @@
 import { Button } from '@chakra-ui/button'
 import { Input, InputGroup, InputRightElement } from '@chakra-ui/input'
 import { Container, Heading } from '@chakra-ui/layout'
+import { useToast } from '@chakra-ui/toast'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { post_signup } from '../../services/auth'
-require('dotenv').config();
+import { cksClient } from '../../services/Core'
 
 const Signup = () => {
     const [show, setShow] = React.useState(false);
     const [show2, setShow2] = React.useState(false);
     const handleClick = () => setShow(!show);
     const handleClick2 = () => setShow2(!show2);
+
     const [loading, setLoading] = React.useState(false);
+    const toast = useToast()
+    const Navigate = useNavigate();
 
     const [form, setForm] = React.useState({
         fullname: "",
@@ -30,21 +35,34 @@ const Signup = () => {
     const onSignup = async (e) => {
         e.preventDefault();
         setLoading(true);
-        try {
-            post_signup(
-                form,
-                resp => {
-                    setLoading(false)
-                    console.log(resp)
-                },
-                error => {
-                    setLoading(false)
-                    console.log('error')
-                }
-            );
-        } catch {
-            setLoading(false);
-        }
+        post_signup(
+            form,
+            resp => {
+                setLoading(false);
+                toast({
+                    description: resp.data.message,
+                    status: 'success',
+                    duration: 3000,
+                    isClosable: true,
+                });
+                cksClient().set('_authToken', resp.data.token, {
+                   path: '/',
+                   sameSite: 'lax' 
+                });
+                setTimeout(() => {
+                    Navigate('/');
+                }, 1500);
+            },
+            error => {
+                setLoading(false);
+                toast({
+                    description: error.response.data.message,
+                    status: 'error',
+                    duration: 3000,
+                    isClosable: true,
+                });
+            }
+        );
     }
 
     return (
@@ -52,8 +70,8 @@ const Signup = () => {
             <form onSubmit={onSignup}>
                 <Heading marginBottom="60px" lineHeight="100%">Buat akun dan mulai checkout sepatu-sepatu keren!</Heading>
 
-                <Input name='fullname' placeholder='Nama Lengkap' focusBorderColor="black" value={form.fullname} onChange={handleChange} required />
-                <Input name='email' placeholder='Email' marginTop="5px" focusBorderColor="black" value={form.email} onChange={handleChange} required/>
+                <Input isDisabled={loading} name='fullname' placeholder='Nama Lengkap' focusBorderColor="black" value={form.fullname} onChange={handleChange} required />
+                <Input isDisabled={loading} name='email' placeholder='Email' marginTop="5px" focusBorderColor="black" value={form.email} onChange={handleChange} required/>
                 <InputGroup marginTop="5px">
                     <Input
                         required
@@ -62,6 +80,7 @@ const Signup = () => {
                         placeholder='Kata Sandi'
                         name='password'
                         onChange={handleChange}
+                        isDisabled={loading}
                     />
                     <InputRightElement width="4.5rem">
                         <Button h='1.75rem' size='xs' onClick={handleClick} _focus={{outline: "none"}}>
@@ -77,6 +96,7 @@ const Signup = () => {
                         placeholder='Masukkan Kembali Kata Sandi'
                         name='confirmPassword'
                         onChange={handleChange}
+                        isDisabled={loading}
                     />
                     <InputRightElement width="4.5rem">
                         <Button h='1.75rem' size='xs' onClick={handleClick2} _focus={{outline: "none"}}>
@@ -88,7 +108,7 @@ const Signup = () => {
                 <Button
                     type='submit'
                     isLoading={loading}
-                    loadingText='Submitting'
+                    loadingText='Buat Akun ...'
                     marginTop="20px"
                     width="100%"
                     backgroundColor="black"

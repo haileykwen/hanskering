@@ -1,11 +1,9 @@
 import './App.css';
-import { Home, Signin, Signup } from './pages';
+import MainRouter from './router';
 
 function App() {
   return (
-    <Signup />
-    // <Signin />
-    // <Home />
+    <MainRouter />
   );
 }
 

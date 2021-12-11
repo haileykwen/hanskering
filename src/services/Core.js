@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Cookies from 'universal-cookie/es6';
 
 const apiClient = () => {
     const _url = process.env.REACT_APP_API_BASE_URL
@@ -14,28 +15,33 @@ const apiClient = () => {
     client.interceptors.request.use(
         requestConfig => requestConfig,
         requestError => {
-            return Promise.reject(requestError)
+            return requestError;
         },
     )
 
     client.interceptors.response.use(
-        response => Promise.resolve(response),
+        response => {
+            return response;
+        },
         error => {
-            if (error.response) {
-                const { status } = error.response
-
-                if (status === 403) {
-                    console.log('Global api check - Forbidden Access')
-                }
-            }
-
-            return Promise.reject(error)
+            return error;
         }
     )
 
     return client
 }
 
+const cksClient = () => {
+    const cksApp = new Cookies();
+    return cksApp;
+}
+
+const getToken = () => {
+    return cksClient().get('_authToken') || null;
+}
+
 export {
-    apiClient
+    apiClient,
+    cksClient,
+    getToken
 }
