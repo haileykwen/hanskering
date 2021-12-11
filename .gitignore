@@ -108,6 +108,7 @@ dist
 /node_modules
 /.pnp
 .pnp.js
+.history
 
 # testing
 /coverage
