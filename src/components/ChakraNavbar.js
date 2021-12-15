@@ -12,11 +12,17 @@ import {
   Stack,
   useColorMode,
   Center,
+  Icon,
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { FiShoppingCart } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
+import { ROUTE } from '../services/Url';
 
 export default function ChakraNavbar({onSignout}) {
   const { colorMode, toggleColorMode } = useColorMode();
+  const Navigate = useNavigate();
+
   return (
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} position={'fixed'} width={'100%'} zIndex={99}>
@@ -27,6 +33,10 @@ export default function ChakraNavbar({onSignout}) {
             <Stack direction={'row'} spacing={7}>
               <Button onClick={toggleColorMode}>
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+              </Button>
+
+              <Button onClick={() => Navigate(ROUTE.PROFILE_CART)}>
+                <Icon as={FiShoppingCart} transition="all 0.15s ease" />
               </Button>
 
               <Menu>
