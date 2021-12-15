@@ -6,7 +6,6 @@ import {
     Navigate,
     Outlet
   } from "react-router-dom";
-// import { Cart } from "../pages/Cart";
 import { getToken } from "../services/Core";
 import { ROUTE } from "../services/Url";
 
@@ -25,6 +24,7 @@ const Signin                = React.lazy(() => import('../pages/Signin'));
 const Signup                = React.lazy(() => import('../pages/Signup'));
 const ProductDetail         = React.lazy(() => import('../pages/ProductDetail'));
 const Cart                  = React.lazy(() => import('../pages/Cart'));
+const OrderPreparation      = React.lazy(() => import('../pages/OrderPreparation'));
 
 const MainRouter = () => {
     return (
@@ -49,6 +49,10 @@ const MainRouter = () => {
 
                     <Route path={ROUTE.PROFILE_CART} element={<PrivateOutlet />}>
                         <Route path={ROUTE.PROFILE_CART} element={<Cart />} />
+                    </Route>
+
+                    <Route path={ROUTE.ORDER_PREPARATION} element={<PrivateOutlet />}>
+                        <Route path={ROUTE.ORDER_PREPARATION} element={<OrderPreparation />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

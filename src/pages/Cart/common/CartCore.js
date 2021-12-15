@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { CartItem } from './CartItem'
 import { CartOrderSummary } from './CartOrderSummary'
 
-export const CartCore = ({cart, onDeleteItem, totalPrice}) => {
+export const CartCore = ({cart, onDeleteItem, totalPrice, onCheckout}) => {
     const Navigate = useNavigate();
 
     return (
@@ -40,7 +40,7 @@ export const CartCore = ({cart, onDeleteItem, totalPrice}) => {
 
                 {cart !== null && cart.length > 0 &&
                     <Flex direction="column" align="center" flex="1">
-                        <CartOrderSummary totalPrice={totalPrice} />
+                        <CartOrderSummary totalPrice={totalPrice} onCheckout={onCheckout} />
                         <HStack mt="6" fontWeight="semibold">
                             <p>atau</p>
                             <Link onClick={() => Navigate('/')} color={'blue.500'}>Kembali Belanja</Link>

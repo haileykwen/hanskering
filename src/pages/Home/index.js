@@ -3,7 +3,6 @@ import { Container, Input, InputGroup, InputLeftElement, InputRightElement, Radi
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import ChakraNavbar from '../../components/ChakraNavbar'
-import { cksClient } from '../../services/Core'
 import { get_productWithPagination } from '../../services/product'
 import { ROUTE } from '../../services/Url'
 import InfiniteScroll from 'react-infinite-scroll-component'
@@ -72,17 +71,9 @@ const Home = () => {
         Navigate(ROUTE.PRODUCT_DETAIL.replace(':slug', id));
     }
 
-    const onSignout = () => {
-        cksClient().set('_authToken', null, {
-            path: '/',
-            sameSite: 'lax' 
-        });
-        Navigate(ROUTE.AUTH_SIGNIN);
-    }
-
     return (
         <>
-            <ChakraNavbar onSignout={onSignout} />
+            <ChakraNavbar />
             <Container minH="100vh" maxW="3xl" paddingTop={'84px'} display={'flex'} flexDirection={'column'} paddingBottom={'20px'} >
                 <InputGroup margin={'0 0 0 auto'} marginBottom={'10px'}>
                     <InputLeftElement>

@@ -1,12 +1,18 @@
 import { Container } from '@chakra-ui/react'
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import ChakraNavbar from '../../components/ChakraNavbar'
 import { delete_cart, get_cart } from '../../services/profile'
+import { ROUTE } from '../../services/Url'
 import { CartCore } from './common/CartCore'
 
 const Cart = () => {
     const [carts, setCarts] = React.useState(null);
     const [totalPrice, setTotalPrice] = React.useState(0);
+
+    const dispatch = useDispatch();
+    const Navigate = useNavigate();
 
     const getCart = () => {
         get_cart(
@@ -48,6 +54,18 @@ const Cart = () => {
         setTotalPrice(price);
     }
 
+    const onCheckout = () => {
+        dispatch({
+            type: "UPDATE_ORDER_DATA",
+            payload: {
+                items: carts,
+                price: totalPrice
+            }
+        });
+
+        Navigate(ROUTE.ORDER_PREPARATION);
+    }
+
     React.useEffect(() => {
         getCart();
     }, []);
@@ -62,7 +80,7 @@ const Cart = () => {
         <div>
             <ChakraNavbar />
             <Container maxW={'5xl'} paddingTop={'64px'}>
-                <CartCore cart={carts} onDeleteItem={deleteCart} totalPrice={totalPrice} />
+                <CartCore cart={carts} onDeleteItem={deleteCart} totalPrice={totalPrice} onCheckout={onCheckout} />
             </Container>
         </div>
     )

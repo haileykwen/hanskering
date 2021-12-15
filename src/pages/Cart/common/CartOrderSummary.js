@@ -2,7 +2,7 @@ import { Button, Flex, Stack, Text } from '@chakra-ui/react'
 import { FaArrowRight } from 'react-icons/fa'
 import { formatPrice } from './PriceTag'
 
-export const CartOrderSummary = ({totalPrice}) => {
+export const CartOrderSummary = ({totalPrice, onCheckout}) => {
     return (
         <Stack 
             spacing="8" 
@@ -25,7 +25,7 @@ export const CartOrderSummary = ({totalPrice}) => {
                     </Text>
                 </Flex>
             </Stack>
-            <Button colorScheme="blue" size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
+            <Button onClick={onCheckout} colorScheme="blue" size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
                 Checkout
             </Button>
         </Stack>

@@ -31,8 +31,19 @@ const delete_cart = (params, callbkSuccess, callbkError) => {
     });
 }
 
+const get_userData = (callbkSuccess, callbkError) => {
+    apiClient(true).get(API.PROFILE_USER_DATA).then(resp => {
+        if (resp && resp.status === 200) {
+            callbkSuccess && callbkSuccess(resp);
+        } else {
+            callbkError && callbkError(resp);
+        }
+    });
+}
+
 export {
     put_cart,
     get_cart,
-    delete_cart
+    delete_cart,
+    get_userData
 }

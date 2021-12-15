@@ -8,12 +8,17 @@ export const API = {
     PRODUCT_VIEW        : "/api/product/view",
 
     PROFILE_CART        : "/api/user/profile/cart",
+    PROFILE_USER_DATA   : "/api/user/profile",
+
+    ORDER_ONGKIR        : "/api/order/ongkir"
 }
 
 export const ROUTE = {
-    AUTH_SIGNUP     : "/auth/signup",
-    AUTH_SIGNIN     : "/auth/signin",
+    AUTH_SIGNUP         : "/auth/signup",
+    AUTH_SIGNIN         : "/auth/signin",
     
-    PRODUCT_DETAIL  : "/product/detail/:slug",
-    PROFILE_CART    : "/profile/cart"
+    PRODUCT_DETAIL      : "/product/detail/:slug",
+    PROFILE_CART        : "/profile/cart",
+
+    ORDER_PREPARATION   : "/order/preparation"
 }
