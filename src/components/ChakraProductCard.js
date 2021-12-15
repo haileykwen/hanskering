@@ -8,7 +8,7 @@ import {
     Image,
   } from '@chakra-ui/react';
   
-  export default function ChakraProductCard({product}) {
+  export default function ChakraProductCard({product, onView}) {
     return (
       <Center py={5}>
         <Box
@@ -50,6 +50,7 @@ import {
               width={200}
               objectFit={'cover'}
               src={product.foto}
+              onClick={() => onView(product.kode_barang)}
             />
           </Box>
           <Stack pt={10} align={'center'}>

@@ -22,6 +22,9 @@ const PublicOutlet = () => {
 const Home                  = React.lazy(() => import('../pages/Home'));
 const Signin                = React.lazy(() => import('../pages/Signin'));
 const Signup                = React.lazy(() => import('../pages/Signup'));
+const ProductDetail         = React.lazy(() => import('../pages/ProductDetail'));
+const Cart                  = React.lazy(() => import('../pages/Cart'));
+const OrderPreparation      = React.lazy(() => import('../pages/OrderPreparation'));
 
 const MainRouter = () => {
     return (
@@ -38,6 +41,18 @@ const MainRouter = () => {
 
                     <Route path={ROUTE.AUTH_SIGNUP} element={<PublicOutlet />}>
                         <Route path={ROUTE.AUTH_SIGNUP} element={<Signup />} />
+                    </Route>
+
+                    <Route path={ROUTE.PRODUCT_DETAIL} element={<PrivateOutlet />}>
+                        <Route path={ROUTE.PRODUCT_DETAIL} element={<ProductDetail />} />
+                    </Route>
+
+                    <Route path={ROUTE.PROFILE_CART} element={<PrivateOutlet />}>
+                        <Route path={ROUTE.PROFILE_CART} element={<Cart />} />
+                    </Route>
+
+                    <Route path={ROUTE.ORDER_PREPARATION} element={<PrivateOutlet />}>
+                        <Route path={ROUTE.ORDER_PREPARATION} element={<OrderPreparation />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
