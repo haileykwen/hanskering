@@ -6,6 +6,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { post_signup } from '../../services/auth'
 import { cksClient } from '../../services/Core'
+import { ROUTE } from '../../services/Url'
+import { Text } from '@chakra-ui/react'
 
 const Signup = () => {
     const [show, setShow] = React.useState(false);
@@ -119,6 +121,11 @@ const Signup = () => {
                 >
                     Buat Akun
                 </Button>
+
+                <Text
+                    marginTop={'30px'}
+                    textAlign={'center'}
+                >Sudah punya akun? Masuk <span style={{fontWeight: 'bold', cursor: 'pointer'}} onClick={() => Navigate(ROUTE.AUTH_SIGNIN)}>disini</span></Text>
             </form>
         </Container>
     )
