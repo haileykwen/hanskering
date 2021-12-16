@@ -107,7 +107,7 @@ export default function ChakraNavbar() {
                                         </Center>
                                         <br />
                                         <MenuDivider />
-                                        <MenuItem>Pengaturan Akun</MenuItem>
+                                        <MenuItem onClick={() => Navigate(ROUTE.PROFILE_SETTING)}>Pengaturan Akun</MenuItem>
                                         <MenuItem onClick={onSignout}>Keluar</MenuItem>
                                     </MenuList>
                                 </Menu>

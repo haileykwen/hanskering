@@ -9,6 +9,10 @@ export const API = {
 
     PROFILE_CART        : "/api/user/profile/cart",
     PROFILE_USER_DATA   : "/api/user/profile",
+    PROFILE_PROVINCE    : "/api/user/profile/province",
+    PROFILE_CITY        : "/api/user/profile/city",
+    PROFILE_ADDRESS     : "/api/user/profile/address",
+    PROFILE_PHONE       : "/api/user/profile/phone",
 
     ORDER_ONGKIR        : "/api/order/ongkir"
 }
@@ -19,6 +23,9 @@ export const ROUTE = {
     
     PRODUCT_DETAIL      : "/product/detail/:slug",
     PROFILE_CART        : "/profile/cart",
+    PROFILE_SETTING     : "/profile/setting",
+    PROFILE_ADDRESS     : "/profile/address",
+    PROFILE_PHONE     : "/profile/phone",
 
     ORDER_PREPARATION   : "/order/preparation"
 }
