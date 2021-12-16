@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'universal-cookie/es6';
 
 const apiClient = (withBearer = false) => {
-    const _url = 'https://hanskering.herokuapp.com';
+    const _url = process.env.REACT_APP_API_BASE_URL;
     const _tkn = cksClient().get('_authToken')
     const options = {
         baseURL: _url,
