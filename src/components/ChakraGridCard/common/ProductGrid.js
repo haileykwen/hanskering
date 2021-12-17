@@ -3,14 +3,16 @@ import * as React from 'react'
 
 export const ProductGrid = (props) => {
   const columns = React.useMemo(() => {
-    const count = React.Children.toArray(props.children).filter(React.isValidElement).length
+    // const count = React.Children.toArray(props.children).filter(React.isValidElement).length
     return {
-      base: Math.min(2, count),
-      sm: Math.min(3, count),
-      md: Math.min(4, count),
-      lg: Math.min(4, count),
-      xl: Math.min(4, count),
+      base: Math.min(2, 2),
+      sm: Math.min(3, 3),
+      md: Math.min(4, 4),
+      lg: Math.min(4, 4),
+      xl: Math.min(4, 4),
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.children])
   return (
     <SimpleGrid

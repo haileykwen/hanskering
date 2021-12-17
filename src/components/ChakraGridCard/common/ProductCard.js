@@ -23,7 +23,6 @@ import {
         padding={'10px'}
         rounded={'md'}
         {...rootProps}
-        maxW='211px'
       >
         <Box position="relative">
           <AspectRatio ratio={4 / 3}>
