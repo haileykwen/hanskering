@@ -1,5 +1,6 @@
-import { apiClient } from "../Core";
-import { API } from "../Url";
+import { useNavigate } from "react-router-dom";
+import { apiClient, cksClient } from "../Core";
+import { API, ROUTE } from "../Url";
 
 const post_signup = (data, callbkSuccess, callbkError) => {
     apiClient().post(API.AUTH_SIGNUP, data).then(resp => {
@@ -21,18 +22,17 @@ const post_signin = (data, callbkSuccess, callbkError) => {
     });
 }
 
-const get_signout = (data, callbkSuccess, callbkError) => {
-    apiClient().post(API.AUTH_SIGNOUT, data).then(resp => {
-        if (resp && resp.status === 200) {
-            callbkSuccess && callbkSuccess(resp);
-        } else {
-            callbkError && callbkError(resp);
-        }
+const Get_signout = (data, callbkSuccess, callbkError) => {
+    const Navigate = useNavigate();
+    cksClient().set('_authToken', null, {
+        path: '/',
+        sameSite: 'lax'
     });
+    Navigate(ROUTE.AUTH_SIGNIN);
 }
 
 export {
     post_signup,
     post_signin,
-    get_signout
+    Get_signout
 }
