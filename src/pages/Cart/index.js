@@ -1,6 +1,6 @@
-import { Container } from '@chakra-ui/react'
+import { Container, useToast } from '@chakra-ui/react'
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import ChakraNavbar from '../../components/ChakraNavbar'
 import { delete_cart, get_cart } from '../../services/profile'
@@ -8,11 +8,13 @@ import { ROUTE } from '../../services/Url'
 import { CartCore } from './common/CartCore'
 
 const Cart = () => {
+    const { userData } = useSelector(state => state);
     const [carts, setCarts] = React.useState(null);
     const [totalPrice, setTotalPrice] = React.useState(0);
 
     const dispatch = useDispatch();
     const Navigate = useNavigate();
+    const toast = useToast();
 
     const getCart = () => {
         get_cart(
@@ -55,15 +57,24 @@ const Cart = () => {
     }
 
     const onCheckout = () => {
-        dispatch({
-            type: "UPDATE_ORDER_DATA",
-            payload: {
-                items: carts,
-                price: totalPrice
-            }
-        });
-
-        Navigate(ROUTE.ORDER_PREPARATION);
+        if (userData.alamat && userData.telepon) {
+            dispatch({
+                type: "UPDATE_ORDER_DATA",
+                payload: {
+                    items: carts,
+                    price: totalPrice
+                }
+            });
+    
+            Navigate(ROUTE.ORDER_PREPARATION);
+        } else {
+            toast({
+                description: 'Ooops, data diri kamu belum lengkap',
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+            });
+        }
     }
 
     React.useEffect(() => {

@@ -21,7 +21,7 @@ export const CartCore = ({cart, onDeleteItem, totalPrice, onCheckout}) => {
                     flex="2"
                 >
                     <Heading fontSize="2xl" fontWeight="extrabold">
-                        Shopping Core ({cart !== null && cart.length} items)
+                        Keranjang Belanja ({cart !== null && cart.length} items)
                     </Heading>
 
                     

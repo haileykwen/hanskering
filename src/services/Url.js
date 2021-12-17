@@ -14,7 +14,8 @@ export const API = {
     PROFILE_ADDRESS     : "/api/user/profile/address",
     PROFILE_PHONE       : "/api/user/profile/phone",
 
-    ORDER_ONGKIR        : "/api/order/ongkir"
+    ORDER_ONGKIR        : "/api/order/ongkir",
+    ORDER_CREATE        : "/api/order"
 }
 
 export const ROUTE = {
