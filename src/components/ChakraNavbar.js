@@ -67,7 +67,7 @@ export default function ChakraNavbar() {
             <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} position={'fixed'} width={'100%'} zIndex={99}>
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                     <Box>
-                        <Image onClick={() => Navigate('/')} src={Logo} width={'100px'} marginLeft={'-20px'} />
+                        <Image cursor='pointer' onClick={() => Navigate('/')} src={Logo} width={'100px'} marginLeft={'-20px'} />
                     </Box>
 
                     <Flex alignItems={'center'}>
@@ -108,6 +108,7 @@ export default function ChakraNavbar() {
                                         <br />
                                         <MenuDivider />
                                         <MenuItem onClick={() => Navigate(ROUTE.PROFILE_SETTING)}>Pengaturan Akun</MenuItem>
+                                        <MenuItem onClick={() => Navigate(ROUTE.PROFILE_ORDER)}>Pesananku</MenuItem>
                                         <MenuItem onClick={onSignout}>Keluar</MenuItem>
                                     </MenuList>
                                 </Menu>

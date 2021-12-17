@@ -89,6 +89,7 @@ const ProfileAddress = () => {
     }
 
     React.useEffect(() => {
+        document.title = "Hanskering | Alamat"
         getProvince();
     }, []);
 

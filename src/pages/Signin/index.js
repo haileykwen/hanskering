@@ -63,6 +63,10 @@ const Signin = () => {
         );
     }
 
+    React.useEffect(() => {
+        document.title = "Hanskering | Masuk"
+    }, []);
+
     return (
         <Container minH="100vh" alignItems="center" justifyContent="center" centerContent>
 

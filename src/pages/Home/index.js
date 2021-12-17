@@ -20,6 +20,7 @@ const Home = () => {
     const Navigate = useNavigate();
 
     React.useEffect(() => {
+        document.title = "Hanskering"
         getProduct(false);
 
         // eslint-disable-next-line react-hooks/exhaustive-deps

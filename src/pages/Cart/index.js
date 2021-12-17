@@ -78,6 +78,7 @@ const Cart = () => {
     }
 
     React.useEffect(() => {
+        document.title = "Hanskering | Keranjang"
         getCart();
     }, []);
 
