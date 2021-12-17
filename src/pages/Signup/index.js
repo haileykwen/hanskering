@@ -67,6 +67,10 @@ const Signup = () => {
         );
     }
 
+    React.useEffect(() => {
+        document.title = "Hanskering | Buat Akun"
+    }, []);
+
     return (
         <Container minH="100vh" alignItems="center" justifyContent="center" centerContent>
             <form onSubmit={onSignup}>

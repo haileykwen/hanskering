@@ -74,6 +74,7 @@ const ProductDetail = () => {
     }
 
     React.useEffect(() => {
+        document.title = "Hanskering | Detail Produk"
         getProduct();
 
         // eslint-disable-next-line react-hooks/exhaustive-deps

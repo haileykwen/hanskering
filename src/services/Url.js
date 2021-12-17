@@ -15,7 +15,9 @@ export const API = {
     PROFILE_PHONE       : "/api/user/profile/phone",
 
     ORDER_ONGKIR        : "/api/order/ongkir",
-    ORDER_CREATE        : "/api/order"
+    ORDER_CREATE        : "/api/order",
+    ORDER_USER          : "/api/order/user",
+    ORDER_DETAIL        : "/api/order",
 }
 
 export const ROUTE = {
@@ -26,7 +28,9 @@ export const ROUTE = {
     PROFILE_CART        : "/profile/cart",
     PROFILE_SETTING     : "/profile/setting",
     PROFILE_ADDRESS     : "/profile/address",
-    PROFILE_PHONE     : "/profile/phone",
+    PROFILE_PHONE       : "/profile/phone",
+    PROFILE_ORDER       : "/profile/order",
 
-    ORDER_PREPARATION   : "/order/preparation"
+    ORDER_PREPARATION   : "/order/preparation",
+    ORDER_DETAIL        : "/order/detail/:slug"
 }

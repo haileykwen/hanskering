@@ -63,7 +63,7 @@ const OrderPreparation = () => {
                     duration: 3000,
                     isClosable: true,
                 });
-                Navigate(ROUTE.PROFILE_SETTING);
+                Navigate(ROUTE.PROFILE_ORDER);
             },
             error => {
                 setLoading(false);
@@ -105,6 +105,7 @@ const OrderPreparation = () => {
     }
 
     React.useEffect(() => {
+        document.title = "Hanskering | Buat Pesanan"
         if (!orderData) {
             Navigate(ROUTE.PROFILE_CART);
         }

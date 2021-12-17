@@ -39,6 +39,10 @@ const ProfilePhone = () => {
         );
     }
 
+    React.useEffect(() => {
+        document.title = "Hanskering | No. Telepon"
+    }, []);
+
     return (
         <>
             <ChakraNavbar />

@@ -9,6 +9,10 @@ const ProfileSetting = () => {
     const { userData } = useSelector(state => state);
     const Navigate = useNavigate();
 
+    React.useEffect(() => {
+        document.title = "Hanskering | Pengaturan Akun"
+    }, []);
+
     return (
         <>
             <ChakraNavbar />
