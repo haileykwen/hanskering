@@ -6,9 +6,10 @@ export const ProductGrid = (props) => {
     const count = React.Children.toArray(props.children).filter(React.isValidElement).length
     return {
       base: Math.min(2, count),
-      md: Math.min(3, count),
+      sm: Math.min(3, count),
+      md: Math.min(4, count),
       lg: Math.min(4, count),
-      xl: Math.min(5, count),
+      xl: Math.min(4, count),
     }
   }, [props.children])
   return (
