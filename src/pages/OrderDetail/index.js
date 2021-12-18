@@ -89,6 +89,7 @@ const OrderDetail = () => {
                             <Text>Total: {formatPrice(order.total)}</Text>
                             <Text>Batas Pembayaran: {order.expired}</Text>
                             <Text>Status: {order.status}</Text>
+                            {order.paid_on && <Text>Dibayar Pada: {order.paid_on}</Text>}
                         </Stack> : <Skeleton height='60px' />
                     }
                 </Stack>
