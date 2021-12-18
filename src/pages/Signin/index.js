@@ -45,7 +45,8 @@ const Signin = () => {
                 });
                 cksClient().set('_authToken', resp.data.token, {
                    path: '/',
-                   sameSite: 'lax' 
+                   sameSite: 'lax',
+                   maxAge: 31536000 
                 });
                 setTimeout(() => {
                     Navigate("/");
