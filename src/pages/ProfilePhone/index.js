@@ -5,6 +5,7 @@ import { Input } from '@chakra-ui/react'
 import { put_telepon } from '../../services/profile'
 import { useNavigate } from 'react-router-dom'
 import { ROUTE } from '../../services/Url'
+import ChakraFooter from '../../components/ChakraFooter'
 
 const ProfilePhone = () => {
     const [phone, setPhone] = React.useState('');
@@ -44,9 +45,9 @@ const ProfilePhone = () => {
     }, []);
 
     return (
-        <>
+        <div style={{minHeight: 'calc(100vh + 307px)'}}>
             <ChakraNavbar />
-            <Container paddingTop='84px' paddingBottom='20px'>
+            <Container minH='100vh' paddingTop='84px' paddingBottom='50px'>
                 <Text>No. Telepon</Text>
                 <Input 
                     marginTop='10px'
@@ -62,7 +63,10 @@ const ProfilePhone = () => {
                     onClick={onSimpan}
                 >Simpan</Button>
             </Container>
-        </>
+            <div style={{width: '100%'}}>
+                <ChakraFooter />
+            </div>
+        </div>
     )
 }
 

@@ -66,8 +66,8 @@ export default function ChakraNavbar() {
         <>
             <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} position={'fixed'} width={'100%'} zIndex={99}>
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-                    <Box>
-                        <Image cursor='pointer' onClick={() => Navigate('/')} src={Logo} width={'100px'} marginLeft={'-20px'} />
+                    <Box margin='10px'>
+                        <Image cursor='pointer' onClick={() => Navigate('/')} src={Logo} width={'70px'} marginLeft={'-20px'} />
                     </Box>
 
                     <Flex alignItems={'center'}>

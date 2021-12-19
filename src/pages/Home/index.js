@@ -7,6 +7,7 @@ import { get_productWithPagination } from '../../services/product'
 import { ROUTE } from '../../services/Url'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { ChakraGridCard } from '../../components/ChakraGridCard'
+import ChakraFooter from '../../components/ChakraFooter'
 
 const Home = () => {
     const [products, setProducts] = React.useState(null);
@@ -95,9 +96,9 @@ const Home = () => {
     }
 
     return (
-        <>
+        <div style={{minHeight: products && 'calc(100vh + 307px)'}}>
             <ChakraNavbar />
-            <Container minH="100vh" maxW="3xl" paddingTop={'84px'} display={'flex'} flexDirection={'column'} paddingBottom={'20px'} >
+            <Container minH="100vh" maxW="3xl" paddingTop={'84px'} display={'flex'} flexDirection={'column'} paddingBottom={'50px'} >
                 <InputGroup margin={'0 0 0 auto'} marginBottom={'10px'}>
                     <InputLeftElement>
                         <SearchIcon />
@@ -144,7 +145,10 @@ const Home = () => {
                     <ChakraGridCard products={products} onView={onView} />
                 </InfiniteScroll>
             </Container>
-        </>
+            {products && <div style={{width: '100%'}}>
+                <ChakraFooter />
+            </div>}
+        </div>
     )
 }
 

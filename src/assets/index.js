@@ -5,6 +5,8 @@ import LOGOMandiri from './mandiri.png';
 import LOGOBRI from './bri.png';
 import LOGOBNI from './bni.png';
 import Logo from './logo.png';
+import ICDownloadAndroid from './ic-download-android.svg';
+import ICDownloadIOS from './ic-download-ios.svg';
 
 export {
     LOGOIndomaret,
@@ -13,5 +15,7 @@ export {
     LOGOMandiri,
     LOGOBRI,
     LOGOBNI,
-    Logo
+    Logo,
+    ICDownloadAndroid,
+    ICDownloadIOS
 }
