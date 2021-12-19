@@ -1,3 +1,4 @@
+import { Center, Spinner } from "@chakra-ui/react";
 import React from "react";
 import {
     Routes,
@@ -31,9 +32,17 @@ const ProfilePhone          = React.lazy(() => import('../pages/ProfilePhone'));
 const MyOrder               = React.lazy(() => import('../pages/MyOrder'));
 const OrderDetail           = React.lazy(() => import('../pages/OrderDetail'));
 
+const FallbackLoader = () => {
+    return (
+        <Center h='100vh' color='black'>
+            <Spinner />
+        </Center>
+    )
+}
+
 const MainRouter = () => {
     return (
-        <React.Suspense fallback={<span>Mengambil data ...</span>}>
+        <React.Suspense fallback={<FallbackLoader />}>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<PrivateOutlet />}>

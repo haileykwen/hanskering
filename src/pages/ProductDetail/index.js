@@ -6,6 +6,7 @@ import ChakraNavbar from '../../components/ChakraNavbar'
 import { get_product } from '../../services/product'
 import { FiUnlock } from 'react-icons/fi'
 import { put_cart } from '../../services/profile'
+import ChakraFooter from '../../components/ChakraFooter'
 
 const ProductDetail = () => {
     const [product, setProduct] = React.useState(null);
@@ -81,9 +82,9 @@ const ProductDetail = () => {
     }, []);
 
     return (
-        <>
+        <div style={{minHeight: 'calc(100vh + 307px)'}}>
             <ChakraNavbar />
-            <Container paddingTop={'84px'} paddingBottom={'20px'}>
+            <Container minH='100vh' paddingTop={'84px'} paddingBottom={'50px'}>
                 <Image
                     width={'100%'}
                     src={product && product.foto}
@@ -135,7 +136,10 @@ const ProductDetail = () => {
                     onClick={onAddToCart}
                 >Tambahkan ke Keranjang</Button>}
             </Container>
-        </>
+            <div style={{width: '100%'}}>
+                <ChakraFooter />
+            </div>
+        </div>
     )
 }
 

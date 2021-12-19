@@ -12,6 +12,7 @@ import { LOGOAlfamart, LOGOBCA, LOGOBNI, LOGOBRI, LOGOIndomaret, LOGOMandiri } f
 import { get_ongkir, post_order } from '../../services/order';
 import { formatPrice } from '../Cart/common/PriceTag';
 import { Get_signout } from '../../services/auth';
+import ChakraFooter from '../../components/ChakraFooter';
 
 const OrderPreparation = () => {
     const { orderData, userData } = useSelector(state => state);
@@ -116,10 +117,10 @@ const OrderPreparation = () => {
     }, []);
 
     return (
-        <div>
+        <div style={{minHeight: 'calc(100vh + 307px)'}}>
             <ChakraNavbar />
             {render && 
-            <Container paddingTop={'84px'} paddingBottom={'20px'}>
+            <Container minH='100vh' paddingTop={'84px'} paddingBottom={'50px'}>
                 <Stack spacing="6">
                     {orderData.items && orderData.items.length > 0 && orderData.items.map((item) => (
                         <OrderProductMeta key={item.kode_barang} {...item} />
@@ -273,6 +274,9 @@ const OrderPreparation = () => {
                 </Button>
 
             </Container>}
+            <div style={{width: '100%'}}>
+                <ChakraFooter />
+            </div>
         </div>
     )
 }

@@ -5,6 +5,7 @@ import { get_city, get_province, put_address } from '../../services/profile'
 import { Select, Textarea } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import { ROUTE } from '../../services/Url'
+import ChakraFooter from '../../components/ChakraFooter'
 
 const ProfileAddress = () => {
     const [provinces, setProvinces] = React.useState([]);
@@ -100,9 +101,9 @@ const ProfileAddress = () => {
     }, [chooseProvince]);
 
     return (
-        <>
+        <div style={{minHeight: 'calc(100vh + 307px)'}}>
             <ChakraNavbar />
-            <Container paddingTop='84px' paddingBottom='20px'>
+            <Container minH='100vh' paddingTop='84px' paddingBottom='50px'>
                 <Text>Pilih Provinsi</Text>
                 <Select marginTop='10px' placeholder='Select option' onChange={(e) => onChangeProvince(e)}>
                     {provinces.length > 0 && provinces.map((province, index) => (
@@ -141,7 +142,10 @@ const ProfileAddress = () => {
                     isLoading={loading}
                 >Simpan</Button>
             </Container>
-        </>
+            <div style={{width: '100%'}}>
+                <ChakraFooter />
+            </div>
+        </div>
     )
 }
 

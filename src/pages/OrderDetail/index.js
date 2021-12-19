@@ -1,6 +1,7 @@
 import { Container, Heading, Skeleton, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import ChakraFooter from '../../components/ChakraFooter'
 import ChakraNavbar from '../../components/ChakraNavbar'
 import { get_orderDetail } from '../../services/order'
 import { formatPrice } from '../MyOrder/common/PriceTag'
@@ -34,9 +35,9 @@ const OrderDetail = () => {
     }, []);
 
     return (
-        <>
+        <div style={{minHeight: 'calc(100vh + 307px)'}}>
             <ChakraNavbar />
-            <Container maxW={'2xl'} paddingTop='84px' paddingBottom='20px'>
+            <Container minH='100vh' maxW={'2xl'} paddingTop='84px' paddingBottom='50px'>
                 <Heading fontSize="2xl" fontWeight="extrabold">
                     Detail Pesanan {id_pesanan}
                 </Heading>
@@ -94,7 +95,10 @@ const OrderDetail = () => {
                     }
                 </Stack>
             </Container>
-        </>
+            <div style={{width: '100%'}}>
+                <ChakraFooter />
+            </div>
+        </div>
     )
 }
 

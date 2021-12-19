@@ -2,6 +2,7 @@ import { Container, useToast } from '@chakra-ui/react'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import ChakraFooter from '../../components/ChakraFooter'
 import ChakraNavbar from '../../components/ChakraNavbar'
 import { delete_cart, get_cart } from '../../services/profile'
 import { ROUTE } from '../../services/Url'
@@ -89,11 +90,14 @@ const Cart = () => {
     }, [carts]);
 
     return (
-        <div>
+        <div style={{minHeight: 'calc(100vh + 307px)'}}>
             <ChakraNavbar />
-            <Container maxW={'5xl'} paddingTop={'64px'}>
+            <Container maxW={'5xl'} paddingTop={'64px'} paddingBottom='50px' minH='100vh'>
                 <CartCore cart={carts} onDeleteItem={deleteCart} totalPrice={totalPrice} onCheckout={onCheckout} />
             </Container>
+            <div style={{width: '100%'}}>
+                <ChakraFooter />
+            </div>
         </div>
     )
 }

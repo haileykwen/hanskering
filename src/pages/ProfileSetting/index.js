@@ -4,6 +4,7 @@ import ChakraNavbar from "../../components/ChakraNavbar";
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { ROUTE } from '../../services/Url';
+import ChakraFooter from '../../components/ChakraFooter';
 
 const ProfileSetting = () => {
     const { userData } = useSelector(state => state);
@@ -14,9 +15,9 @@ const ProfileSetting = () => {
     }, []);
 
     return (
-        <>
+        <div style={{minHeight: 'calc(100vh + 307px)'}}>
             <ChakraNavbar />
-            <Container paddingTop={'84px'} paddingBottom={'20px'}>
+            <Container minH='100vh' paddingTop={'84px'} paddingBottom={'50px'}>
                 <Heading>Halaman Profile</Heading>
                 <Text marginTop={'30px'}>Alamat</Text>
                 <Stack 
@@ -44,7 +45,10 @@ const ProfileSetting = () => {
                 </Stack>
                 { userData && userData.telepon && <Text textAlign='right' cursor='pointer' onClick={() => Navigate(ROUTE.PROFILE_PHONE)}>Rubah No. Telepon</Text>}
             </Container>
-        </>
+            <div style={{width: '100%'}}>
+                <ChakraFooter />
+            </div>
+        </div>
     )
 }
 
